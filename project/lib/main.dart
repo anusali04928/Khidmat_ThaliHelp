@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
+import 'package:project/Calculator.dart';
 import 'package:project/roundedAppBar.dart';
 
 void main() {
@@ -8,11 +8,9 @@ void main() {
 
 /*
 the different functions which are mapped to the onpressed callbacks of the
-different buttons in the main menu.
+different buttons in the main menu - we may use these helper functions for 
+page navigation purposes.
 */
-void calculator() {
-  print('print Calculator');
-}
 
 void alarm() {
   print('print Alarm');
@@ -39,11 +37,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => MainMenu(),
+      //   '/second': (context) => Calculator(),
+      // },
+      title: 'ThaliHelp',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
       home: MainMenu(),
     );
   }
@@ -63,7 +65,23 @@ class MainMenu extends StatelessWidget {
               InkWell(
                 // the calculator button
                 onTap: () {
-                  calculator();
+                  Navigator.push(context, PageRouteBuilder(
+                      // what follows is additional code for animated transition
+
+                      // transitionDuration: Duration(seconds: 2),
+                      // transitionsBuilder:
+                      //     (context, animation, animationTime, child) {
+                      //   animation = CurvedAnimation(
+                      //       parent: animation, curve: Curves.elasticOut);
+                      //   return ScaleTransition(
+                      //     alignment: Alignment.center,
+                      //     scale: animation,
+                      //     child: child,
+                      //   );
+                      // },
+                      pageBuilder: (context, animation, animationTime) {
+                    return Calculator();
+                  }));
                 },
                 splashColor: Colors.red.shade500,
                 child: Container(
