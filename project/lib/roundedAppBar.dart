@@ -52,6 +52,7 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
                       title,
                       textAlign: TextAlign.center,
                       style: TextStyle(
+                          fontFamily: 'SanFrancisco',
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -67,6 +68,5 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size.fromHeight(200);
 }
