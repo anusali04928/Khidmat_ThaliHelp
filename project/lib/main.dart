@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Calculator.dart';
 import 'package:project/roundedAppBar.dart';
+import 'package:project/CustomBtn.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // initialRoute: '/',
       // routes: {
       //   '/': (context) => MainMenu(),
@@ -46,14 +48,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MainMenu(),
+      home: SafeArea(
+        child: MainMenu(),
+      ),
     );
   }
 }
 
 class MainMenu extends StatelessWidget {
   @override
+  Widget _currentPage = Menu();
   Widget build(BuildContext context) {
+    double h1 = MediaQuery.of(context).size.height / 8;
+    double w1 = (MediaQuery.of(context).size.width) / 4;
+    double hsmall = MediaQuery.of(context).size.height / 20;
+    double wsmall = MediaQuery.of(context).size.width / 5;
+/*
     // the custom widget builder for the 2nd and the 3rd rows
     Widget secondbtnSec = Container(
         margin: const EdgeInsets.only(top: 20),
@@ -199,20 +209,17 @@ class MainMenu extends StatelessWidget {
             children: [_buildSingleBtn(Icons.access_alarm_outlined, 'Alarm')],
           ),
         ));
-
-    return Scaffold(
-        backgroundColor: Colors.white, // add gradient here possibly
-        extendBodyBehindAppBar: true,
-        appBar: RoundedAppBar('Main Menu'), //AppBar
-        body: ListView(
-          children: [
-            alarmSec,
-            secondbtnSec,
-            exitSec,
-          ],
-        ));
+*/
+    return SafeArea(
+        child: Scaffold(
+      backgroundColor: Colors.white, // add gradient here possibly
+      //  extendBodyBehindAppBar: true,
+      appBar: RoundedAppBar('Main Menu'), //AppBar
+      body: _currentPage,
+    ));
   }
 
+/*
   Container _buildSingleBtn(IconData icon, String label) {
     return Container(
         child: Column(
@@ -259,6 +266,139 @@ class MainMenu extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+  */
+}
+
+/*
+class CustomBtn extends StatelessWidget {
+  double w;
+  double h;
+  IconData ic;
+  String title;
+  // Widget next;
+  CustomBtn({this.h, this.w, this.ic, this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.red[900],
+      height: h,
+      width: w,
+      child: OutlineButton(
+        onPressed: () {
+          print('pushed');
+        },
+        child: Column(
+          children: [Icon(ic), Text(title)],
+        ),
+      ),
+    );
+  }
+}
+*/
+
+class Menu extends StatefulWidget {
+  double h1, w1, hsmall, wsmall;
+
+  Menu({this.h1, this.w1, this.hsmall, this.wsmall});
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.fromLTRB(0, widget.h1 / 3, 0, 0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          //Alarm Button
+          Button(
+            h: widget.h1,
+            w: widget.w1 * 2.5,
+            ic: Icons.alarm,
+            text: 'Alarm',
+          ),
+          SizedBox(
+            width: widget.w1 / 4,
+            height: widget.h1 / 4,
+          ),
+          Container(
+            padding:
+                EdgeInsets.fromLTRB(widget.w1 / 1.2, 0, widget.w1 / 1.2, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Column(
+                  children: [
+                    Button(
+                      h: widget.h1,
+                      w: widget.w1,
+                      ic: Icons.calculate,
+                      text: "Calculator",
+                      meth: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Calculator())),
+                    ),
+                    SizedBox(
+                      width: widget.w1 / 4,
+                      height: widget.h1 / 4,
+                    ),
+                    Button(
+                      h: widget.h1,
+                      w: widget.w1,
+                      ic: Icons.calendar_today_outlined,
+                      text: "Calender",
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: widget.w1 / 4,
+                  height: widget.h1 / 4,
+                ),
+                Column(
+                  children: [
+                    Button(
+                      h: widget.h1,
+                      w: widget.w1,
+                      ic: Icons.radio,
+                      text: "Radio",
+                    ),
+                    SizedBox(
+                      width: widget.w1 / 4,
+                      height: widget.h1 / 4,
+                    ),
+                    Button(
+                      h: widget.h1,
+                      w: widget.w1,
+                      ic: Icons.phone,
+                      text: "Phone",
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: widget.w1 / 6,
+            height: widget.h1 / 6,
+          ),
+          Button(
+            h: widget.hsmall,
+            w: widget.wsmall,
+            // ic: Icons.logout,
+            text: 'Logout',
+            fw: FontWeight.normal,
+          )
+        ],
+      ),
     );
   }
 }
