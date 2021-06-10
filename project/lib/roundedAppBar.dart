@@ -27,7 +27,7 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
                 padding: EdgeInsets.only(
                     bottom: width / 2 - preferredSize.height / 2),
                 child: Container(
-                  alignment: Alignment.bottomCenter,
+                  alignment: Alignment(0.0, 0.96),
                   padding: EdgeInsets.only(bottom: 50),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -36,7 +36,7 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
                         //stops: [0.3, 0.6, 1],
                         colors: <Color>[
                           Color(0xff9B2821),
-                          Color(0xffba2529),
+                          // Color(0xffba2529),
                           Color(0xffd82334),
                           Color(0xffDD2130),
                           Color(0xffDD2130),

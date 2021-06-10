@@ -8,6 +8,7 @@ class Button extends StatelessWidget {
   final double fontSize;
   final Function meth;
   final FontWeight fw;
+  final Image im;
   IconData ic;
 
   Button(
@@ -18,19 +19,22 @@ class Button extends StatelessWidget {
       this.tp = 0,
       this.rp = 0,
       this.text,
-      this.fontSize = 12,
+      this.fontSize = 14,
       this.meth,
       this.ic,
-      this.fw = FontWeight.bold});
+      this.fw = FontWeight.bold,
+      this.im});
 
   @override
   Widget _icon(ic) {
     if (ic != null) {
       return Icon(
         ic,
-        color: Colors.redAccent,
+        color: Color(0xffba2529),
         size: h / 2,
       );
+    } else if (im != null) {
+      return im;
     } else {
       return SizedBox(width: 0, height: 0);
     }
@@ -47,7 +51,7 @@ class Button extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xFFA22525),
+                color: Color(0xffba2529),
                 style: BorderStyle.solid,
                 width: 1.0,
               ),
