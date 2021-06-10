@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project/CustomBtn.dart';
 import 'package:project/roundedAppBar.dart';
 
 class Calculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double h1 = MediaQuery.of(context).size.height / 8;
+    double w1 = (MediaQuery.of(context).size.width) / 3;
     Widget buttonSection = Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,10 +40,29 @@ class Calculator extends StatelessWidget {
       constructed by a single Column housing two rows which in themselves are a
       2x1 matrix and so are built using a bottom-up approach. 
       */
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.min,
-        children: [buttonSection],
+      body: Container(
+        padding: EdgeInsets.fromLTRB(w1, h1, w1, 0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Button(
+              h: h1,
+              w: w1,
+              text: 'Blood Calculator',
+              ic: Icons.bloodtype,
+            ),
+            SizedBox(
+              height: h1 / 2,
+            ),
+            Button(
+              h: h1,
+              w: w1,
+              text: 'Medicine',
+              ic: Icons.medication,
+            )
+          ],
+        ),
       ),
     );
   }
