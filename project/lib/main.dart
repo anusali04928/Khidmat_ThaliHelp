@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/Calculator.dart';
-import 'package:project/roundedAppBar.dart';
-import 'package:project/CustomBtn.dart';
+import 'package:project/Calculator/Calculator.dart';
+import 'package:project/Custom_widgets/roundedAppBar.dart';
+import 'package:project/Custom_widgets/CustomBtn.dart';
 
 void main() {
   runApp(MyApp());
