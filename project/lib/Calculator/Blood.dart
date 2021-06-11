@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/CustomBtn.dart';
-import 'package:project/roundedAppBar.dart';
+import 'package:project/Custom_widgets/CustomBtn.dart';
+import 'package:project/Custom_widgets/roundedAppBar.dart';
 
 class Blood extends StatefulWidget {
   @override

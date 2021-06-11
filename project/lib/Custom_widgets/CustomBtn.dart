@@ -50,12 +50,24 @@ class Button extends StatelessWidget {
           onTap: meth,
           child: Container(
             decoration: BoxDecoration(
+              boxShadow: [
+                //background color of box
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 5.0, // soften the shadow
+                  spreadRadius: 2.0, //extend the shadow
+                  offset: Offset(
+                    2.0, // Move to right 10  horizontally
+                    2.0, // Move to bottom 10 Vertically
+                  ),
+                )
+              ],
               border: Border.all(
                 color: Color(0xffba2529),
                 style: BorderStyle.solid,
                 width: 1.0,
               ),
-              color: Colors.transparent,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20.0),
             ),
             child: Column(
