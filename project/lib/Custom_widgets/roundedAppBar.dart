@@ -56,7 +56,7 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
                     title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontFamily: 'Nunito',
+                        fontFamily: 'SanFrancisco',
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
