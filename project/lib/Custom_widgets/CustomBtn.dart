@@ -78,12 +78,15 @@ class Button extends StatelessWidget {
                     text,
                     style: TextStyle(
                       color: Colors.black,
-                      fontFamily: 'Nunito',
+                      fontFamily: 'SanFrancisco',
                       fontSize: fontSize,
                       fontWeight: fw,
-                      letterSpacing: 1,
+                      letterSpacing: 0.5,
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 2,
                 ),
                 _icon(ic),
               ],
