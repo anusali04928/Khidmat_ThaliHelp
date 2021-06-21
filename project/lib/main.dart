@@ -66,15 +66,15 @@ class MainMenu extends StatelessWidget {
                     children: [
                       //Calculator
                       Button(
-                        h: h1,
-                        w: w1,
-                        ic: Icons.calculate,
-                        text: "Calculator",
-                        meth: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Calculator())),
-                      ),
+                          h: h1,
+                          w: w1,
+                          ic: Icons.calculate,
+                          text: "Calculator",
+                          meth: () => Navigator.push(context, PageRouteBuilder(
+                                  pageBuilder:
+                                      (context, animation, animationTime) {
+                                return Calculator();
+                              }))),
                       SizedBox(
                         width: w1 / 4,
                         height: h1 / 4,
