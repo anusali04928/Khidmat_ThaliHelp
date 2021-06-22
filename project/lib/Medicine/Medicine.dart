@@ -26,7 +26,7 @@ class _MedicineState extends State<Medicine> {
                   h: h1,
                   w: w1,
                   im: Image(
-                    image: AssetImage('assets/Deferiprone_small.png'),
+                    image: AssetImage('assets/Deferiprone.png'),
                     width: w1 / 2,
                     height: h1 / 2,
                   ),
@@ -69,7 +69,7 @@ class _MedicineState extends State<Medicine> {
                           pageBuilder: (context, animation, animationTime) {
                         return MedicineHistory(
                             'Deferoxamine',
-                            AssetImage('assets/Deferoxamine.png'),
+                            AssetImage('assets/Deferoxamine_big.png'),
                             1600.toString());
                       }))),
             ],
