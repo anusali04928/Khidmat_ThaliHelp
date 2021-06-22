@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/Calculator/Calculator.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
+import 'package:project/Food/FoodTypes.dart';
 
 void main() {
   runApp(MyApp());
@@ -98,8 +99,17 @@ class MainMenu extends StatelessWidget {
                       Button(
                         h: h1,
                         w: w1,
-                        ic: Icons.radio,
-                        text: "Radio",
+                        // ic: Icons.radio,
+                        im: Image(
+                          image: AssetImage('assets/platter.png'),
+                          height: h1 / 2,
+                          width: w1 / 2,
+                        ),
+                        text: "Food Intake",
+                        meth: () => Navigator.push(context, PageRouteBuilder(
+                            pageBuilder: (context, animation, animationTime) {
+                          return FoodTypes();
+                        })),
                       ),
                       SizedBox(
                         width: w1 / 4,
@@ -127,7 +137,7 @@ class MainMenu extends StatelessWidget {
               w: wsmall,
               // ic: Icons.logout,
               text: 'Logout',
-              fw: FontWeight.normal,
+              fw: FontWeight.bold,
             )
           ],
         ),
