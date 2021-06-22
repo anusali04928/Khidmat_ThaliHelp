@@ -26,7 +26,7 @@ class _MedicineState extends State<Medicine> {
                   h: h1,
                   w: w1,
                   im: Image(
-                    image: AssetImage('assets/Deferiprone_small.png'),
+                    image: AssetImage('assets/Deferiprone.png'),
                     width: w1 / 2,
                     height: h1 / 2,
                   ),
@@ -38,6 +38,8 @@ class _MedicineState extends State<Medicine> {
                               'Deferiprone',
                               AssetImage('assets/Deferiprone_big.png'),
                               1600.toString())))),
+
+                              
               SizedBox(height: h1 / 4),
               Button(
                 h: h1,

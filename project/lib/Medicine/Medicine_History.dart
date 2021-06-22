@@ -7,6 +7,7 @@ import 'package:project/Medicine/Medicine_Dose.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
 
+
 class MedicineHistory extends StatefulWidget {
   String text;
   AssetImage im;
@@ -20,9 +21,12 @@ class MedicineHistory extends StatefulWidget {
 class _MedicineHistoryState extends State<MedicineHistory> {
   String _myActivity;
   String _myActivityResult;
+
   final formKey = new GlobalKey<FormState>();
+
   List<int> list = List.generate(100, (index) => index);
   @override
+  
   void initState() {
     super.initState();
     _myActivity = '';
