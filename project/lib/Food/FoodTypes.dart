@@ -66,7 +66,7 @@ class FoodTypes extends StatelessWidget {
               label: 'Food items that should be avoided',
               fw: FontWeight.bold,
               fsize: 14,
-              boxColor: Colors.red,
+              boxColor: Colors.red.shade700,
               im: Image(
                 image: AssetImage('assets/cross.png'),
                 height: h1 / 3,
