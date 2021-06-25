@@ -31,51 +31,47 @@ class _MedicineState extends State<Medicine> {
                     height: h1 / 2,
                   ),
                   text: 'Deferiprone',
-                  meth: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MedicineHistory(
-                              'Deferiprone',
-                              AssetImage('assets/Deferiprone_big.png'),
-                              1600.toString())))),
-
-                              
+                  meth: () => Navigator.push(context, PageRouteBuilder(
+                          pageBuilder: (context, animation, animationTime) {
+                        return MedicineHistory(
+                            'Deferiprone',
+                            AssetImage('assets/Deferiprone_big.png'),
+                            1600.toString());
+                      }))),
               SizedBox(height: h1 / 4),
               Button(
-                h: h1,
-                w: w1,
-                im: Image(
-                  image: AssetImage('assets/Deferasirox.png'),
-                  width: w1 / 2,
-                  height: h1 / 2,
-                ),
-                text: 'Deferasirox',
-                meth: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MedicineHistory(
+                  h: h1,
+                  w: w1,
+                  im: Image(
+                    image: AssetImage('assets/Deferasirox.png'),
+                    width: w1 / 2,
+                    height: h1 / 2,
+                  ),
+                  text: 'Deferasirox',
+                  meth: () => Navigator.push(context, PageRouteBuilder(
+                          pageBuilder: (context, animation, animationTime) {
+                        return MedicineHistory(
                             'Deferasirox',
                             AssetImage('assets/Deferasirox.png'),
-                            1600.toString()))),
-              ),
+                            1600.toString());
+                      }))),
               SizedBox(height: h1 / 4),
               Button(
-                h: h1,
-                w: w1,
-                im: Image(
-                  image: AssetImage('assets/Deferoxamine.png'),
-                  width: w1 / 2,
-                  height: h1 / 2,
-                ),
-                text: 'Deferoxamine',
-                meth: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MedicineHistory(
+                  h: h1,
+                  w: w1,
+                  im: Image(
+                    image: AssetImage('assets/Deferoxamine.png'),
+                    width: w1 / 2,
+                    height: h1 / 2,
+                  ),
+                  text: 'Deferoxamine',
+                  meth: () => Navigator.push(context, PageRouteBuilder(
+                          pageBuilder: (context, animation, animationTime) {
+                        return MedicineHistory(
                             'Deferoxamine',
                             AssetImage('assets/Deferoxamine_big.png'),
-                            1600.toString()))),
-              )
+                            1600.toString());
+                      }))),
             ],
           ),
         ));

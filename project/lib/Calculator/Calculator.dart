@@ -25,8 +25,10 @@ class Calculator extends StatelessWidget {
               w: w1,
               text: 'Blood',
               ic: Icons.bloodtype_rounded,
-              meth: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Blood())),
+              meth: () => Navigator.push(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, animationTime) {
+                return Blood();
+              })),
             ),
             SizedBox(
               height: h1 / 2,
@@ -36,8 +38,10 @@ class Calculator extends StatelessWidget {
               w: w1,
               text: 'Medicine',
               ic: Icons.medication,
-              meth: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Medicine())),
+              meth: () => Navigator.push(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, animationTime) {
+                return Medicine();
+              })),
             )
           ],
         ),
