@@ -4,8 +4,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:project/Custom_widgets/SecondCustomBtn.dart';
+import 'package:project/Food/FoodList.dart';
 
 class FoodTypes extends StatelessWidget {
+  Map<String, String> avoid_food = {
+    'Burger': 'assets/avoid_food/burger.png',
+    'Cherries': 'assets/avoid_food/cherries.png',
+    'Chips': 'assets/avoid_food/chips.png',
+    'Chocolate': 'assets/avoid_food/chocolate.png',
+    'Coffee': 'assets/avoid_food/coffeee.png',
+    'Cold Drinks': 'assets/avoid_food/cold drinks.png',
+    'Dahi Baray': 'assets/avoid_food/dahi baray.png',
+    'Halwapuri': 'assets/avoid_food/halwapuri.png',
+    'Jam Jelly': 'assets/avoid_food/jam jelly.png',
+    'Junk Food': 'assets/avoid_food/junk food.png',
+    'Mithai': 'assets/avoid_food/mithai sweets.png',
+    'Noodles': 'assets/avoid_food/noodles.png',
+    'Nuggets': 'assets/avoid_food/nuggets.png',
+  };
+  Map<String, List> careful_food;
+  Map<String, List> recc_food;
   @override
   Widget build(BuildContext context) {
     double w1 = MediaQuery.of(context).size.width / 2;
@@ -33,7 +51,8 @@ class FoodTypes extends StatelessWidget {
                 height: h1 / 3,
               ),
               method: () {
-                print('Hello World'); //TODO: Healthy Food Transition
+                print('Hello Wolrd');
+                //TODO: Healthy Food Transition
               },
             ),
             SizedBox(
@@ -60,22 +79,25 @@ class FoodTypes extends StatelessWidget {
               height: h1 / 4,
             ),
             RowButton(
-              // the unheathy food button
-              h: h1 / 2,
-              w: w1 * 3,
-              label: 'Food items that should be avoided',
-              fw: FontWeight.bold,
-              fsize: 14,
-              boxColor: Colors.red,
-              im: Image(
-                image: AssetImage('assets/cross.png'),
-                height: h1 / 3,
-                width: w1 / 3,
-              ),
-              method: () {
-                print('Hello World'); // TODO: Unhealthy food page transition
-              },
-            )
+                // the unheathy food button
+                h: h1 / 2,
+                w: w1 * 3,
+                label: 'Food items that should be avoided',
+                fw: FontWeight.bold,
+                fsize: 14,
+                boxColor: Colors.red,
+                im: Image(
+                  image: AssetImage('assets/cross.png'),
+                  height: h1 / 3,
+                  width: w1 / 3,
+                ),
+                method: () => Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, animationTime) {
+                      return FoodList(
+                        title: 'Unhealthy Food',
+                        images: avoid_food,
+                      );
+                    }))),
           ],
         ),
       ),

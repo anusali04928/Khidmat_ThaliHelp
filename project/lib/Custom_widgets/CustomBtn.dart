@@ -7,6 +7,7 @@ class Button extends StatelessWidget {
   final String text;
   final double fontSize;
   final Function meth;
+
   final FontWeight fw;
   final Image im;
   IconData ic;
