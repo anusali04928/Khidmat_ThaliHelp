@@ -79,25 +79,22 @@ class FoodTypes extends StatelessWidget {
               height: h1 / 4,
             ),
             RowButton(
-                // the unheathy food button
-                h: h1 / 2,
-                w: w1 * 3,
-                label: 'Food items that should be avoided',
-                fw: FontWeight.bold,
-                fsize: 14,
-                boxColor: Colors.red,
-                im: Image(
-                  image: AssetImage('assets/cross.png'),
-                  height: h1 / 3,
-                  width: w1 / 3,
-                ),
-                method: () => Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, animationTime) {
-                      return FoodList(
-                        title: 'Unhealthy Food',
-                        images: avoid_food,
-                      );
-                    }))),
+              // the unheathy food button
+              h: h1 / 2,
+              w: w1 * 3,
+              label: 'Food items that should be avoided',
+              fw: FontWeight.bold,
+              fsize: 14,
+              boxColor: Colors.red.shade700,
+              im: Image(
+                image: AssetImage('assets/cross.png'),
+                height: h1 / 3,
+                width: w1 / 3,
+              ),
+              method: () {
+                print('Hello World'); // TODO: Unhealthy food page transition
+              },
+            )
           ],
         ),
       ),
