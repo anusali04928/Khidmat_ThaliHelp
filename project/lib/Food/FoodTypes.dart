@@ -22,8 +22,10 @@ class FoodTypes extends StatelessWidget {
     'Noodles': 'assets/avoid_food/noodles.png',
     'Nuggets': 'assets/avoid_food/nuggets.png',
   };
-  Map<String, List> careful_food;
-  Map<String, List> recc_food;
+  Map<String, List> careful_food = {};
+  Map<String, String> recc_food = {
+    'Butter': 'assets/recc_food/butter.png',
+  };
   @override
   Widget build(BuildContext context) {
     double w1 = MediaQuery.of(context).size.width / 2;
@@ -79,22 +81,28 @@ class FoodTypes extends StatelessWidget {
               height: h1 / 4,
             ),
             RowButton(
-              // the unheathy food button
-              h: h1 / 2,
-              w: w1 * 3,
-              label: 'Food items that should be avoided',
-              fw: FontWeight.bold,
-              fsize: 14,
-              boxColor: Colors.red.shade700,
-              im: Image(
-                image: AssetImage('assets/cross.png'),
-                height: h1 / 3,
-                width: w1 / 3,
-              ),
-              method: () {
-                print('Hello World'); // TODO: Unhealthy food page transition
-              },
-            )
+                // the unheathy food button
+                h: h1 / 2,
+                w: w1 * 3,
+                label: 'Food items that should be avoided',
+                fw: FontWeight.bold,
+                fsize: 14,
+                boxColor: Colors.red.shade700,
+                im: Image(
+                  image: AssetImage('assets/cross.png'),
+                  height: h1 / 3,
+                  width: w1 / 3,
+                ),
+                method: () => Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, animationTime) {
+                      return FoodList(
+                        title: 'Unhealthy Food',
+                        images: avoid_food,
+                      );
+                    }))
+                // TODO: Unhealthy food page transition
+
+                )
           ],
         ),
       ),

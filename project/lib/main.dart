@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project/Calculator/Calculator.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
-import 'package:project/Food/FoodBreakdown.dart';
 import 'package:project/Food/FoodTypes.dart';
 
 void main() {
@@ -122,12 +121,6 @@ class MainMenu extends StatelessWidget {
                         w: w1,
                         ic: Icons.phone,
                         text: "Phone",
-
-                        // temp navigation just to see the progress page
-                        meth: () => Navigator.push(context, PageRouteBuilder(
-                            pageBuilder: (context, animation, animationTime) {
-                          return Progress();
-                        })),
                       )
                     ],
                   ),

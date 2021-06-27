@@ -38,7 +38,14 @@ class _FoodTileState extends State<FoodTile> {
                 ),
               ],
             ),
-            Image(image: AssetImage(widget.image_add)),
+            Divider(
+              height: widget.h1 / 20,
+              color: Color(0xffba2529),
+            ),
+            Image(
+              image: AssetImage(widget.image_add),
+              fit: BoxFit.fitHeight,
+            ),
           ],
         ),
         height: widget.h1 / 2,

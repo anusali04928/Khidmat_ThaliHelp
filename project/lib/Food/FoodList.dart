@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
+import 'package:project/Food/FoodBreakdown.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'FoodTile.dart';
@@ -32,6 +33,12 @@ class _FoodListState extends State<FoodList> {
       }
       val = val + l;
       print(val);
+    }
+
+    Future<List<String>> getData() async {
+      return Future.delayed(Duration(seconds: 2), () {
+        _getData();
+      });
     }
 
     return Scaffold(
@@ -70,14 +77,16 @@ class _FoodListState extends State<FoodList> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Button(
-                text: 'Past Record',
-                w: w1 / 2,
-                /*  meth: () => Navigator.push(context, PageRouteBuilder(
+                  text: 'Past Record',
+                  w: w1 / 2,
+                  meth: () {
+                    Navigator.push(context, PageRouteBuilder(
                         pageBuilder: (context, animation, animationTime) {
-                      return 
-                    })
-                    ),*/
-              ),
+                      return Progress(Future.delayed(Duration(seconds: 2), () {
+                        return _getData();
+                      }));
+                    }));
+                  }),
               SizedBox(
                 width: w1 / 10,
               ),
@@ -107,6 +116,7 @@ Future<List<String>> _getData() async {
   List<String> data = prefs.getStringList('data') ?? data_empty;
   await Future.delayed(Duration(milliseconds: 5));
   //return arr;
+  print(data);
   return Future.value(data);
 }
 
