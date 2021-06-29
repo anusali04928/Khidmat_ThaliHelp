@@ -20,6 +20,7 @@ class _FoodListState extends State<FoodList> {
   @override
   Widget build(BuildContext context) {
     List<String> image_name = widget.images.keys.toList();
+    // print(image_name);
     List<String> image_add = widget.images.values.toList();
     double w1 = MediaQuery.of(context).size.width / 2;
     double h1 = MediaQuery.of(context).size.height / 2;
@@ -47,7 +48,7 @@ class _FoodListState extends State<FoodList> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: h1 / 1.2,
+            height: h1,
             width: w1 * (3 / 2),
             decoration: BoxDecoration(
               border: Border.all(

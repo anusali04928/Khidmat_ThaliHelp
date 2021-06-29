@@ -52,9 +52,9 @@ flutter:
   assets:
 
     - assets/
-    - assets/avoid_food/
-    - assets/careful_food/
-    - assets/recc_food/
+    - assets/not_healthy/
+    - assets/moderate_food/
+    - assets/healthy_food/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

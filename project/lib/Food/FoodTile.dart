@@ -44,7 +44,7 @@ class _FoodTileState extends State<FoodTile> {
             ),
             Image(
               image: AssetImage(widget.image_add),
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.none,
             ),
           ],
         ),

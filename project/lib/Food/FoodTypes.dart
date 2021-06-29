@@ -8,23 +8,54 @@ import 'package:project/Food/FoodList.dart';
 
 class FoodTypes extends StatelessWidget {
   Map<String, String> avoid_food = {
-    'Burger': 'assets/avoid_food/burger.png',
-    'Cherries': 'assets/avoid_food/cherries.png',
-    'Chips': 'assets/avoid_food/chips.png',
-    'Chocolate': 'assets/avoid_food/chocolate.png',
-    'Coffee': 'assets/avoid_food/coffeee.png',
-    'Cold Drinks': 'assets/avoid_food/cold drinks.png',
-    'Dahi Baray': 'assets/avoid_food/dahi baray.png',
-    'Halwapuri': 'assets/avoid_food/halwapuri.png',
-    'Jam Jelly': 'assets/avoid_food/jam jelly.png',
-    'Junk Food': 'assets/avoid_food/junk food.png',
-    'Mithai': 'assets/avoid_food/mithai sweets.png',
-    'Noodles': 'assets/avoid_food/noodles.png',
-    'Nuggets': 'assets/avoid_food/nuggets.png',
+    'Candy': 'assets/not_healthy/candy.PNG',
+    'Cheerries': 'assets/not_healthy/cheerries.PNG',
+    'Chips': 'assets/not_healthy/chips.PNG',
+    'Choclate': 'assets/not_healthy/choclate.PNG',
+    'Drinks': 'assets/not_healthy/drinks.PNG',
+    'Halwa puri': 'assets/not_healthy/halwa puri.PNG',
+    'Jamjelly': 'assets/not_healthy/jamjelly.PNG',
+    'Junk food': 'assets/not_healthy/junk food.PNG',
+    'Mithai': 'assets/not_healthy/mithai.PNG',
+    'Noodles': 'assets/not_healthy/noodles.PNG',
+    'Parsley': 'assets/not_healthy/parsley.PNG',
+    'Pomegranate': 'assets/not_healthy/pomegranate.PNG',
+    'Samosa': 'assets/not_healthy/samosa.PNG',
+    'Snacks': 'assets/not_healthy/snacks.PNG'
   };
-  Map<String, List> careful_food = {};
+  Map<String, String> careful_food = {
+    'Beans': 'assets/moderate_food/beans.PNG',
+    'Beef': 'assets/moderate_food/beef.PNG',
+    'Biscuits': 'assets/moderate_food/biscuits.PNG',
+    'Burger': 'assets/moderate_food/burger.PNG',
+    'Cakes': 'assets/moderate_food/cakes.PNG',
+    'Chickpeas': 'assets/moderate_food/chickpeas.PNG',
+    'Dahi baray': 'assets/moderate_food/dahi baray.PNG',
+    'Dates': 'assets/moderate_food/dates.PNG',
+    'Fries': 'assets/moderate_food/fries.PNG',
+    'Fruits not eat': 'assets/moderate_food/fruits not eat.PNG',
+    'Iecream': 'assets/moderate_food/iecream.PNG',
+    'Nuggets': 'assets/moderate_food/nuggets.PNG',
+    'Rusk': 'assets/moderate_food/rusk.PNG',
+    'Sandwich': 'assets/moderate_food/sandwich.PNG',
+    'Tea coffee': 'assets/moderate_food/tea coffee.PNG'
+  };
   Map<String, String> recc_food = {
-    'Butter': 'assets/recc_food/butter.png',
+    'Bread': 'assets/healthy_food/bread.PNG',
+    'Butter': 'assets/healthy_food/butter.PNG',
+    'Cereal': 'assets/healthy_food/cereal.PNG',
+    'Cheese': 'assets/healthy_food/cheese.PNG',
+    'Chicken': 'assets/healthy_food/chicken.PNG',
+    'Eggs': 'assets/healthy_food/eggs.PNG',
+    'Fish': 'assets/healthy_food/fish.PNG',
+    'Fruits': 'assets/healthy_food/fruits.PNG',
+    'Milkshake': 'assets/healthy_food/milkshake.PNG',
+    'Nuts': 'assets/healthy_food/nuts.PNG',
+    'Oliveoil': 'assets/healthy_food/oliveoil.PNG',
+    'Pulses': 'assets/healthy_food/pulses.PNG',
+    'Rice': 'assets/healthy_food/rice.PNG',
+    'Veggiessss': 'assets/healthy_food/veggiessss.PNG',
+    'Yughurt': 'assets/healthy_food/yughurt.PNG'
   };
   @override
   Widget build(BuildContext context) {
@@ -52,10 +83,13 @@ class FoodTypes extends StatelessWidget {
                 width: w1 / 3,
                 height: h1 / 3,
               ),
-              method: () {
-                print('Hello Wolrd');
-                //TODO: Healthy Food Transition
-              },
+              method: () => Navigator.push(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, animationTime) {
+                return FoodList(
+                  title: 'Healthy Food',
+                  images: recc_food,
+                );
+              })),
             ),
             SizedBox(
               height: h1 / 4,
@@ -73,9 +107,13 @@ class FoodTypes extends StatelessWidget {
                 width: w1 / 4,
                 height: h1 / 3,
               ),
-              method: () {
-                print('Hello World'); //TODO: Alarming Food Page Transition
-              },
+              method: () => Navigator.push(context, PageRouteBuilder(
+                  pageBuilder: (context, animation, animationTime) {
+                return FoodList(
+                  title: 'Moderately Healthy Food',
+                  images: careful_food,
+                );
+              })),
             ),
             SizedBox(
               height: h1 / 4,
