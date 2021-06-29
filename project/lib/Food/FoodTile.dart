@@ -17,46 +17,64 @@ class _FoodTileState extends State<FoodTile> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-      child: Container(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Checkbox(
-                  value: this.showvalue,
-                  onChanged: (bool value) {
-                    widget.meth(value);
+      child: Card(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8.0))),
+        child: Container(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Checkbox(
+                    value: this.showvalue,
+                    onChanged: (bool value) {
+                      widget.meth(value);
 
-                    setState(() {
-                      this.showvalue = value;
-                    });
-                  },
+                      setState(() {
+                        this.showvalue = value;
+                      });
+                    },
+                  ),
+                  Text(
+                    widget.image_name,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'SanFrancisco',
+                      fontSize: widget.h1 / 20,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.25,
+                    ),
+                  ),
+                ],
+              ),
+              Divider(
+                height: 0,
+                color: Color(0xffba2529),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0),
                 ),
-                Text(
-                  widget.image_name,
-                  style: TextStyle(fontSize: widget.h1 / 20),
+                child: Image(
+                  image: AssetImage(widget.image_add),
+                  fit: BoxFit.fitWidth,
+                  height: (widget.h1 / 3) * 1.25,
+                  width: MediaQuery.of(context).size.width / 3,
                 ),
-              ],
-            ),
-            Divider(
-              height: widget.h1 / 20,
-              color: Color(0xffba2529),
-            ),
-            Image(
-              image: AssetImage(widget.image_add),
-              fit: BoxFit.none,
-            ),
-          ],
-        ),
-        height: widget.h1 / 2,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Color(0xffba2529),
-            style: BorderStyle.solid,
-            width: 1.0,
+              )
+            ],
           ),
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(10.0),
+          height: widget.h1 / 2,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Color(0xffba2529),
+              style: BorderStyle.solid,
+              width: 1.0,
+            ),
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
       ),
     );
