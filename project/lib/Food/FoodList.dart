@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:project/Food/FoodBreakdown.dart';
+import 'package:project/models/DietResp.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dio/dio.dart';
 
 import 'FoodTile.dart';
 
@@ -17,6 +21,95 @@ class FoodList extends StatefulWidget {
 
 class _FoodListState extends State<FoodList> {
   bool showvalue = false;
+
+  DateTime currentDate = DateTime.now();
+  Future<List<double>> getDatafromServer() async {
+    dynamic param = {'id': '60dc4d9dd61ac5000426a323'};
+    try {
+      var response = await Dio().get(
+          'https://thalihelp.herokuapp.com/getmonthlyintake',
+          queryParameters: param);
+
+      var resp = DietResp.fromJson(jsonDecode(response.toString()));
+      List<double> res = [
+        resp.healthy.toDouble(),
+        resp.unhealthy.toDouble(),
+        resp.avoid.toDouble()
+      ];
+      print(res);
+      return res;
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future goodpostData(int val) async {
+    final String url = 'https://thalihelp.herokuapp.com/addtoarr';
+    dynamic body = {
+      'type': 'dailyintakegood',
+      'id': '60dc4d9dd61ac5000426a323',
+      'date': currentDate.year.toString() +
+          '-' +
+          '0' +
+          currentDate.month.toString() +
+          '-' +
+          '0' +
+          currentDate.day.toString(),
+      'goodfoodcount': val.toDouble(),
+    };
+    var response = await Dio().put(
+      url,
+      data: body,
+    );
+    print(body);
+    print(response);
+    getDatafromServer();
+  }
+
+  Future badpostData(int val) async {
+    final String url = 'https://thalihelp.herokuapp.com/addtoarr';
+    dynamic body = {
+      'type': 'dailyintakebad',
+      'id': '60dc4d9dd61ac5000426a323',
+      'date': currentDate.year.toString() +
+          '-' +
+          '0' +
+          currentDate.month.toString() +
+          '-' +
+          '0' +
+          currentDate.day.toString(),
+      'badfoodcount': val.toDouble(),
+    };
+    var response = await Dio().put(
+      url,
+      data: body,
+    );
+    print(body);
+    print(response);
+  }
+
+  Future avgpostData(int val) async {
+    final String url = 'https://thalihelp.herokuapp.com/addtoarr';
+    dynamic body = {
+      'type': 'dailyintakeavg',
+      'id': '60dc4d9dd61ac5000426a323',
+      'date': currentDate.year.toString() +
+          '-' +
+          '0' +
+          currentDate.month.toString() +
+          '-' +
+          '0' +
+          currentDate.day.toString(),
+      'avgfoodcount': val.toDouble(),
+    };
+    var response = await Dio().put(
+      url,
+      data: body,
+    );
+    print(body);
+    print(response);
+  }
+
   @override
   Widget build(BuildContext context) {
     List<String> image_name = widget.images.keys.toList();
@@ -32,14 +125,13 @@ class _FoodListState extends State<FoodList> {
       } else {
         l = -1;
       }
-      val = val + l;
-      print(val);
-    }
+      if (val <= 0 && l == -1) {
+        val = 0;
+      } else {
+        val = val + l;
+      }
 
-    Future<List<String>> getData() async {
-      return Future.delayed(Duration(seconds: 2), () {
-        _getData();
-      });
+      print(val);
     }
 
     return Scaffold(
@@ -81,10 +173,11 @@ class _FoodListState extends State<FoodList> {
                   text: 'Past Record',
                   w: w1 / 2,
                   meth: () {
+                    getDatafromServer();
                     Navigator.push(context, PageRouteBuilder(
                         pageBuilder: (context, animation, animationTime) {
-                      return Progress(Future.delayed(Duration(seconds: 2), () {
-                        return _getData();
+                      return Progress(Future.delayed(Duration(seconds: 1), () {
+                        return getDatafromServer();
                       }));
                     }));
                   }),
@@ -95,7 +188,14 @@ class _FoodListState extends State<FoodList> {
                 text: 'Save',
                 w: w1 / 2,
                 meth: () {
-                  _addData(widget.title, val);
+                  if (widget.title == 'Unhealthy Food') {
+                    badpostData(val);
+                  } else if (widget.title == 'Healthy Food') {
+                    goodpostData(val);
+                  } else {
+                    avgpostData(val);
+                  }
+
                   //  val = 0;
                 },
               )

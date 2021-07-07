@@ -6,7 +6,7 @@ import 'package:pie_chart/pie_chart.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 
 class Progress extends StatelessWidget {
-  Future<List<String>> data;
+  Future<List<double>> data;
   Progress(this.data);
   @override
   Widget build(BuildContext context) {
@@ -20,10 +20,10 @@ class Progress extends StatelessWidget {
               if (data.connectionState != ConnectionState.waiting &&
                   data.hasData) {
                 var dat = data.data;
-                List<String> _data = dat;
-                sampleMap['Healthy'] = double.parse(_data[1]);
-                sampleMap['Unhealthy'] = double.parse(_data[0]);
-                sampleMap['Take Care'] = double.parse(_data[2]);
+                List<double> _data = dat;
+                sampleMap['Healthy'] = _data[1];
+                sampleMap['Unhealthy'] = _data[0];
+                sampleMap['Take Care'] = _data[2];
                 return Container(
                   child: PieChart(
                       // the PieChart package
