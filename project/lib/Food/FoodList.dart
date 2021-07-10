@@ -22,7 +22,11 @@ class FoodList extends StatefulWidget {
 class _FoodListState extends State<FoodList> {
   bool showvalue = false;
 
+  /// Move this function to food types
+  /// import 'package:dio/dio.dart';
+
   DateTime currentDate = DateTime.now();
+
   Future<List<double>> getDatafromServer() async {
     dynamic param = {'id': '60dc4d9dd61ac5000426a323'};
     try {
@@ -43,6 +47,7 @@ class _FoodListState extends State<FoodList> {
     }
   }
 
+//////////////////////////////////////////////////////////////////////////end
   Future goodpostData(int val) async {
     final String url = 'https://thalihelp.herokuapp.com/addtoarr';
     dynamic body = {
@@ -63,7 +68,6 @@ class _FoodListState extends State<FoodList> {
     );
     print(body);
     print(response);
-    getDatafromServer();
   }
 
   Future badpostData(int val) async {
@@ -169,6 +173,7 @@ class _FoodListState extends State<FoodList> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ///
               Button(
                   text: 'Past Record',
                   w: w1 / 2,
@@ -181,6 +186,8 @@ class _FoodListState extends State<FoodList> {
                       }));
                     }));
                   }),
+
+              ///////////
               SizedBox(
                 width: w1 / 10,
               ),
