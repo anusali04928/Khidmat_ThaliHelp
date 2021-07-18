@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
-import 'package:project/Food/FoodBreakdown.dart';
-import 'package:project/models/DietResp.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart';
 
@@ -26,26 +22,6 @@ class _FoodListState extends State<FoodList> {
   /// import 'package:dio/dio.dart';
 
   DateTime currentDate = DateTime.now();
-
-  Future<List<double>> getDatafromServer() async {
-    dynamic param = {'id': '60dc4d9dd61ac5000426a323'};
-    try {
-      var response = await Dio().get(
-          'https://thalihelp.herokuapp.com/getmonthlyintake',
-          queryParameters: param);
-
-      var resp = DietResp.fromJson(jsonDecode(response.toString()));
-      List<double> res = [
-        resp.healthy.toDouble(),
-        resp.unhealthy.toDouble(),
-        resp.avoid.toDouble()
-      ];
-      print(res);
-      return res;
-    } catch (e) {
-      print(e);
-    }
-  }
 
 //////////////////////////////////////////////////////////////////////////end
   Future goodpostData(int val) async {
@@ -145,27 +121,31 @@ class _FoodListState extends State<FoodList> {
         children: [
           Container(
             height: h1,
-            width: w1 * (3 / 2),
+            width: w1 * 1.65,
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xffba2529),
+                // color: Color(0xffba2529),
+                color: Colors.white,
                 style: BorderStyle.solid,
                 width: 1.0,
               ),
               color: Colors.transparent,
               borderRadius: BorderRadius.circular(15.0),
             ),
-            child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
-                scrollDirection: Axis.vertical,
-                itemCount: widget.images.length,
-                itemBuilder: (context, i) {
-                  return FoodTile(image_add[i], image_name[i], (bool v) {
-                    addVal(v);
-                  }, h1);
-                }),
+            child: Scrollbar(
+                // isAlwaysShown: true,
+                child: GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                    scrollDirection: Axis.vertical,
+                    itemCount: widget.images.length,
+                    itemBuilder: (context, i) {
+                      return FoodTile(image_add[i], image_name[i], (bool v) {
+                        addVal(v);
+                      }, h1);
+                    })),
           ),
           SizedBox(
             height: h1 / 10,
@@ -173,24 +153,6 @@ class _FoodListState extends State<FoodList> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ///
-              Button(
-                  text: 'Past Record',
-                  w: w1 / 2,
-                  meth: () {
-                    getDatafromServer();
-                    Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, animationTime) {
-                      return Progress(Future.delayed(Duration(seconds: 1), () {
-                        return getDatafromServer();
-                      }));
-                    }));
-                  }),
-
-              ///////////
-              SizedBox(
-                width: w1 / 10,
-              ),
               Button(
                 text: 'Save',
                 w: w1 / 2,
@@ -202,7 +164,6 @@ class _FoodListState extends State<FoodList> {
                   } else {
                     avgpostData(val);
                   }
-
                   //  val = 0;
                 },
               )
