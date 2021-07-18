@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/Calculator/Blood.dart';
+import 'package:project/Blood/TransfusionCalc.dart';
+import 'package:project/Calculator/Calculations.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Medicine/Medicine.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
@@ -27,7 +28,12 @@ class Calculator extends StatelessWidget {
               ic: Icons.bloodtype_rounded,
               meth: () => Navigator.push(context, PageRouteBuilder(
                   pageBuilder: (context, animation, animationTime) {
-                return Blood();
+                return Calculations(
+                    'Blood Transfusion',
+                    AssetImage('assets/blood_drop.png'),
+                    1600.toString(),
+                    false,
+                    'Calculate dosage in ml:');
               })),
             ),
             SizedBox(
