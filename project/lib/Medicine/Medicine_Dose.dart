@@ -6,6 +6,7 @@ class MedicineDose extends StatelessWidget {
   String text;
   AssetImage im;
   String amount;
+
   MedicineDose(this.text, this.im, this.amount);
 
   @override
@@ -35,7 +36,11 @@ class MedicineDose extends StatelessWidget {
             Container(
               child: Text(
                 amount + 'mg',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: h1 / 6),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: h1 / 6,
+                  fontFamily: 'SanFrancisco',
+                ),
               ),
             ),
           ],
