@@ -101,7 +101,7 @@ class MainMenu extends StatelessWidget {
                         w: w1,
                         // ic: Icons.radio,
                         im: Image(
-                          image: AssetImage('assets/platter.png'),
+                          image: AssetImage('assets/fahad.png'),
                           height: h1 / 2,
                           width: w1 / 2,
                         ),
