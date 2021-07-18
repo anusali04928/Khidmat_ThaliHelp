@@ -22,8 +22,10 @@ class _FoodTileState extends State<FoodTile> {
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
         child: Container(
           child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Checkbox(
                     value: this.showvalue,
@@ -42,7 +44,7 @@ class _FoodTileState extends State<FoodTile> {
                       fontFamily: 'SanFrancisco',
                       fontSize: widget.h1 / 20,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 0.25,
+                      // letterSpacing: 0.25,
                     ),
                   ),
                 ],
@@ -57,10 +59,11 @@ class _FoodTileState extends State<FoodTile> {
                   bottomRight: Radius.circular(10.0),
                 ),
                 child: Image(
+                  // alignment: Alignment.center,
                   image: AssetImage(widget.image_add),
-                  fit: BoxFit.fitWidth,
-                  height: (widget.h1 / 3) * 1.25,
-                  width: MediaQuery.of(context).size.width / 3,
+                  fit: BoxFit.fitHeight,
+                  height: (widget.h1 / 4),
+                  width: MediaQuery.of(context).size.width,
                 ),
               )
             ],
@@ -70,7 +73,7 @@ class _FoodTileState extends State<FoodTile> {
             border: Border.all(
               color: Color(0xffba2529),
               style: BorderStyle.solid,
-              width: 1.0,
+              width: 1.5,
             ),
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(10.0),
