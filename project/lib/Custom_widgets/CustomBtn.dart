@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
 
   final FontWeight fw;
   final Image im;
-  IconData ic;
+  final IconData ic;
 
   Button(
       {this.h = 30.0,
@@ -26,7 +26,6 @@ class Button extends StatelessWidget {
       this.fw = FontWeight.bold,
       this.im});
 
-  @override
   Widget _icon(ic) {
     if (ic != null) {
       return Icon(
@@ -41,6 +40,7 @@ class Button extends StatelessWidget {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.fromLTRB(lp, tp, rp, bp),

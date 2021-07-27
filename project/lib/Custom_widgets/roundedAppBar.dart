@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
-  String title;
+  final String title;
   RoundedAppBar(this.title);
 
   @override

@@ -33,7 +33,7 @@ class FoodTypes extends StatelessWidget {
     }
   }
 
-  Map<String, String> avoid_food = {
+  final Map<String, String> avoid_food = {
     'Candy': 'assets/not_healthy/candy.jpg',
     'Cherries': 'assets/not_healthy/cherries.jpg',
     'Chips': 'assets/not_healthy/chips.jpg',
@@ -49,7 +49,7 @@ class FoodTypes extends StatelessWidget {
     'Samosa': 'assets/not_healthy/samosa.jpg',
     'Snacks': 'assets/not_healthy/snacks.jpg'
   };
-  Map<String, String> careful_food = {
+  final Map<String, String> careful_food = {
     'Beans': 'assets/moderate_food/beans.jpg',
     'Beef': 'assets/moderate_food/beef.jpg',
     'Biscuits': 'assets/moderate_food/biscuits.jpg',
@@ -66,7 +66,7 @@ class FoodTypes extends StatelessWidget {
     'Sandwich': 'assets/moderate_food/sandwich.jpg',
     'Tea coffee': 'assets/moderate_food/tea.jpg'
   };
-  Map<String, String> recc_food = {
+  final Map<String, String> recc_food = {
     'Bread': 'assets/healthy_food/bread.jpg',
     'Butter': 'assets/healthy_food/butter.jpg',
     'Cereal': 'assets/healthy_food/cereal.jpg',

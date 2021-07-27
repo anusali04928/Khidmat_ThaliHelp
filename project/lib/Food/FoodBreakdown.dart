@@ -6,7 +6,7 @@ import 'package:pie_chart/pie_chart.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 
 class Progress extends StatelessWidget {
-  Future<List<double>> data;
+  final Future<List<double>> data;
   Progress(this.data);
   @override
   Widget build(BuildContext context) {

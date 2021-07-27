@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 
 // class TransfusionCalc extends StatefulWidget {
@@ -8,7 +7,7 @@ import 'package:project/Custom_widgets/roundedAppBar.dart';
 // }
 
 class TransfusionDose extends StatelessWidget {
-  String amount;
+  final String amount;
 
   TransfusionDose(this.amount);
 

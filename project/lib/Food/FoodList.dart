@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart';
 
 import 'FoodTile.dart';
 
 class FoodList extends StatefulWidget {
-  String title;
-  Map<String, String> images;
+  final String title;
+  final Map<String, String> images;
   FoodList({this.title, this.images});
 
   @override
@@ -98,7 +97,7 @@ class _FoodListState extends State<FoodList> {
     double w1 = MediaQuery.of(context).size.width / 2;
     double h1 = MediaQuery.of(context).size.height / 2;
     var val = 0;
-    Function addVal(bool v) {
+    void addVal(bool v) {
       int l = 0;
       if (v == true) {
         l = 1;
@@ -178,7 +177,7 @@ class _FoodListState extends State<FoodList> {
 // Local Storage
 
 // Get method
-
+/*
 Future<List<String>> _getData() async {
   List<String> data_empty = ['0', '0', '0'];
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -188,9 +187,9 @@ Future<List<String>> _getData() async {
   print(data);
   return Future.value(data);
 }
-
+*/
 // Add Method
-
+/*
 _addData(String cat, int val) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   List<String> data = await _getData();
@@ -204,3 +203,4 @@ _addData(String cat, int val) async {
   prefs.setStringList('data', data);
   print(data);
 }
+*/

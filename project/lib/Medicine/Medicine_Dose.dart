@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 
 class MedicineDose extends StatelessWidget {
-  String text;
-  AssetImage im;
-  String amount;
+  final String text;
+  final AssetImage im;
+  final String amount;
 
   MedicineDose(this.text, this.im, this.amount);
 

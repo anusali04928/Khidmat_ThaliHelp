@@ -1,12 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:project/Blood/TransfusionCalc.dart';
-import 'package:project/Custom_widgets/Counter.dart';
-import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Medicine/Medicine_Dose.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
-import 'package:dropdown_formfield/dropdown_formfield.dart';
 
 class Calculations extends StatefulWidget {
   final String text;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FoodTile extends StatefulWidget {
-  String image_name;
-  String image_add;
-  Function meth;
-  double h1;
+  final String image_name;
+  final String image_add;
+  final Function meth;
+  final double h1;
   FoodTile(this.image_add, this.image_name, this.meth(bool v), this.h1);
 
   @override
