@@ -280,6 +280,7 @@ class _AddAlarmState extends State<AddAlarm> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text('Add details: '),
+                            // ignore: deprecated_member_use
                             FlatButton(
                               child: Icon(
                                 Icons.keyboard_arrow_right_rounded,

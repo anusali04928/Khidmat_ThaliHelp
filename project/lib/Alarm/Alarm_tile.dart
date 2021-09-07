@@ -1,19 +1,17 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:project/Alarm/EditAlarm.dart';
 import 'package:project/api/localNotif.dart';
 import 'package:project/models/AlarmSql.dart';
 
 class AlarmTile extends StatefulWidget {
-  AlarmClass data;
+  final AlarmClass data;
   AlarmTile(this.data);
-  final dbins = DBHelper();
 
   @override
   _AlarmTileState createState() => _AlarmTileState();
 }
 
 class _AlarmTileState extends State<AlarmTile> {
+  final dbins = DBHelper();
   String Days() {
     var mapofdays = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
     var days = '';
@@ -71,7 +69,7 @@ class _AlarmTileState extends State<AlarmTile> {
               ),
               IconButton(
                 onPressed: () {
-                  widget.dbins.deleteAlarm(widget.data.id);
+                  dbins.deleteAlarm(widget.data.id);
                   LocalNotif.cancel(widget.data.id);
                 },
                 icon: Icon(

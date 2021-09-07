@@ -5,7 +5,6 @@ import 'package:project/Alarm/AddAlarm.dart';
 import 'package:project/Alarm/Alarm_tile.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Custom_widgets/roundedAppBar.dart';
-import 'package:project/api/localNotif.dart';
 import 'package:project/models/AlarmSql.dart';
 
 class Reminder extends StatefulWidget {

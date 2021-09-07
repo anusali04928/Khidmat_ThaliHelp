@@ -4,18 +4,19 @@ import 'package:project/Custom_widgets/roundedAppBar.dart';
 
 class EditAlarm extends StatefulWidget {
   //const EditAlarm({ Key? key }) : super(key: key);
-  String date;
+  final String date;
   // DateTime time;
-  String title;
-  String note;
-  int id;
+
+  final String title;
+  final String note;
+  final int id;
   EditAlarm(this.id, this.date, this.title, this.note);
   @override
   _EditAlarmState createState() => _EditAlarmState();
 }
 
 class _EditAlarmState extends State<EditAlarm> {
-  final _formKey = GlobalKey<FormState>();
+  // final _formKey = GlobalKey<FormState>();
   // String sessionDay= date.hour>11:
   @override
   Widget build(BuildContext context) {

@@ -26,10 +26,10 @@ class FoodTypes extends StatelessWidget {
         resp.unhealthy.toDouble(),
         resp.avoid.toDouble()
       ];
-      print(res);
+
       return res;
     } catch (e) {
-      print(e);
+      return e;
     }
   }
 

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -95,7 +93,7 @@ class DBHelper {
 
   Future insertAlarm(AlarmClass con) async {
     var db = await database;
-    var result = await db.insert('alarms', con.toJson());
+    await db.insert('alarms', con.toJson());
     // print('result = $result');
   }
 
