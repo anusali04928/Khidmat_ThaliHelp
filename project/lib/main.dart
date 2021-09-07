@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project/Alarm/Reminder.dart';
 import 'package:project/Calculator/Calculator.dart';
 import 'package:project/Calendar/Calendar.dart';
-
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Food/FoodTypes.dart';

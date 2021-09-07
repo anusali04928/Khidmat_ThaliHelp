@@ -469,8 +469,8 @@ class _AddAlarmState extends State<AddAlarm> {
                                         scheduleDate: alarm.timeOfDay(),
                                         days: alarm.DaysofWeek(),
                                       );
+                                      Navigator.pop(context, true);
                                     }
-                                    Navigator.pop(context, true);
                                   }),
                             ),
                           ],

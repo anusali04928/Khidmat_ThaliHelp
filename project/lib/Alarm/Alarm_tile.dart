@@ -4,6 +4,7 @@ import 'package:project/models/AlarmSql.dart';
 
 class AlarmTile extends StatefulWidget {
   final AlarmClass data;
+
   AlarmTile(this.data);
 
   @override
