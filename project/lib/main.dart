@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:project/Alarm/Reminder.dart';
 import 'package:project/Calculator/Calculator.dart';
+import 'package:project/Calendar/Calendar.dart';
+
 import 'package:project/Custom_widgets/roundedAppBar.dart';
 import 'package:project/Custom_widgets/CustomBtn.dart';
 import 'package:project/Food/FoodTypes.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,7 +39,8 @@ class MainMenu extends StatelessWidget {
 
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.white, // add gradient here possibly
+      backgroundColor: Colors.white,
+      // bottomNavigationBar: BottomBar(), // add gradient here possibly
       //  extendBodyBehindAppBar: true,
       appBar: RoundedAppBar('Main Menu'), //AppBar
       body: Container(
@@ -47,11 +52,14 @@ class MainMenu extends StatelessWidget {
           children: [
             //Alarm Button
             Button(
-              h: h1,
-              w: w1 * 2.5,
-              ic: Icons.alarm,
-              text: 'Alarm',
-            ),
+                h: h1,
+                w: w1 * 2.5,
+                ic: Icons.alarm,
+                text: 'Alarm',
+                meth: () => Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, animationTime) {
+                      return Reminder();
+                    }))),
             SizedBox(
               width: w1 / 4,
               height: h1 / 4,
@@ -86,6 +94,10 @@ class MainMenu extends StatelessWidget {
                         w: w1,
                         ic: Icons.calendar_today_outlined,
                         text: "Calender",
+                        meth: () => Navigator.push(context, PageRouteBuilder(
+                            pageBuilder: (context, animation, animationTime) {
+                          return Calendar();
+                        })),
                       )
                     ],
                   ),

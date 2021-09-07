@@ -16,6 +16,7 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           final width = constraints.maxWidth * 8;
+          //final height = constraints.maxHeight * 8;
           return OverflowBox(
             maxHeight: double.infinity,
             maxWidth: double.infinity,
@@ -38,7 +39,6 @@ class RoundedAppBar extends StatelessWidget implements PreferredSizeWidget {
                           Color(0xff9B2821),
                           // Color(0xffba2529),
                           Color(0xffd82334),
-                          Color(0xffDD2130),
                           Color(0xffDD2130),
                           Color(0xffDD2130),
                           Color(0xffDD2126),
