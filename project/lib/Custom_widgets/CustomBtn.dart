@@ -28,13 +28,27 @@ class Button extends StatelessWidget {
 
   Widget _icon(ic) {
     if (ic != null) {
-      return Icon(
-        ic,
-        color: Color(0xffba2529),
-        size: h / 2,
+      return Column(
+        children: [
+          SizedBox(
+            height: 2,
+          ),
+          Icon(
+            ic,
+            color: Color(0xffba2529),
+            size: h / 2,
+          ),
+        ],
       );
     } else if (im != null) {
-      return im;
+      return Column(
+        children: [
+          SizedBox(
+            height: 2,
+          ),
+          im,
+        ],
+      );
     } else {
       return SizedBox(width: 0, height: 0);
     }
@@ -47,7 +61,7 @@ class Button extends StatelessWidget {
       elevation: 0,
       child: Container(
         padding: EdgeInsets.fromLTRB(lp, tp, rp, bp),
-        height: h,
+        height: h + 5,
         width: w,
         decoration: BoxDecoration(
           boxShadow: [
@@ -89,9 +103,6 @@ class Button extends StatelessWidget {
                       letterSpacing: 0.25,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 2,
                 ),
                 _icon(ic),
               ],

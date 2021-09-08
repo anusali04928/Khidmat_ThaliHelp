@@ -4,8 +4,10 @@ import 'package:project/models/AlarmSql.dart';
 
 class AlarmTile extends StatefulWidget {
   final AlarmClass data;
+  final void Function(int) callback;
+  final int index;
 
-  AlarmTile(this.data);
+  AlarmTile(this.data, this.callback, this.index);
 
   @override
   _AlarmTileState createState() => _AlarmTileState();
@@ -33,7 +35,7 @@ class _AlarmTileState extends State<AlarmTile> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           Color(0xffDD2126),
@@ -42,7 +44,15 @@ class _AlarmTileState extends State<AlarmTile> {
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
-          BoxShadow(color: Colors.grey, blurRadius: 6, offset: Offset(0, 3))
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 1.0, // soften the shadow
+            spreadRadius: 1.0, //extend the shadow
+            offset: Offset(
+              0.0, // Move to right 10  horizontally
+              2.0, // Move to bottom 10 Vertically
+            ),
+          )
         ],
       ),
       height: 100,
@@ -51,54 +61,79 @@ class _AlarmTileState extends State<AlarmTile> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
                 children: [
-                  Icon(
-                    Icons.alarm_on,
+                  Image(
+                    image: AssetImage('assets/icons/alarm.png'),
+                    width: 25,
                     color: Colors.white,
-                    size: 24,
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   Text(
                     widget.data.title,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'SanFrancisco',
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.50,
+                    ),
                   ),
                 ],
               ),
-              IconButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   dbins.deleteAlarm(widget.data.id);
                   LocalNotif.cancel(widget.data.id);
+                  widget.callback(widget.index);
                 },
-                icon: Icon(
-                  Icons.delete,
+                child: Image(
+                  image: AssetImage('assets/icons/delete.png'),
+                  width: 25,
                   color: Colors.white,
-                  size: 24,
                 ),
               )
             ],
           ),
-          Text(
-            Days(),
-            style: TextStyle(color: Colors.white, fontSize: 12),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                widget.data.timeOfDay().hour.toString() +
-                    ':' +
-                    widget.data.timeOfDay().minute.toString(),
-                style: TextStyle(
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  Days(),
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400),
-              ),
-            ],
-          )
+                    fontFamily: 'SanFrancisco',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.25,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.data.timeOfDay().hour.toString() +
+                          ':' +
+                          widget.data.timeOfDay().minute.toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'SanFrancisco',
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.25,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

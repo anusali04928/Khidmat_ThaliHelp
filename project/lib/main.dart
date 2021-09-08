@@ -53,7 +53,11 @@ class MainMenu extends StatelessWidget {
             Button(
                 h: h1,
                 w: w1 * 2.5,
-                ic: Icons.alarm,
+                im: Image(
+                  image: AssetImage('assets/icons/alarm.png'),
+                  width: 40,
+                  color: Color(0xffba2529),
+                ),
                 text: 'Alarm',
                 meth: () => Navigator.push(context, PageRouteBuilder(
                         pageBuilder: (context, animation, animationTime) {
@@ -76,7 +80,11 @@ class MainMenu extends StatelessWidget {
                       Button(
                           h: h1,
                           w: w1,
-                          ic: Icons.calculate,
+                          im: Image(
+                            image: AssetImage('assets/icons/medicine.png'),
+                            width: 50,
+                            color: Color(0xffba2529),
+                          ),
                           text: "Calculator",
                           meth: () => Navigator.push(context, PageRouteBuilder(
                                   pageBuilder:
@@ -91,7 +99,11 @@ class MainMenu extends StatelessWidget {
                       Button(
                         h: h1,
                         w: w1,
-                        ic: Icons.calendar_today_outlined,
+                        im: Image(
+                          image: AssetImage('assets/icons/calendar1.png'),
+                          width: 50,
+                          color: Color(0xffba2529),
+                        ),
                         text: "Calender",
                         meth: () => Navigator.push(context, PageRouteBuilder(
                             pageBuilder: (context, animation, animationTime) {

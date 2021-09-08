@@ -17,12 +17,13 @@ class Reminder extends StatefulWidget {
 class _ReminderState extends State<Reminder> {
   final dbins = DBHelper();
   Future<List<AlarmClass>> getData() {
-    return Future.delayed(Duration(seconds: 2), () {
+    return Future.delayed(Duration(milliseconds: 100), () {
       return dbins.alarm();
       // throw Exception("Custom Error");
     });
   }
 
+  List<AlarmClass> l1;
   var update = false;
 
   @override
@@ -32,8 +33,8 @@ class _ReminderState extends State<Reminder> {
       appBar: RoundedAppBar('Reminder'),
       body: Center(
         child: Container(
-          width: 350,
-          height: 400,
+          width: 370,
+          height: 420,
           //  child: ,
           decoration: BoxDecoration(
             border: Border.all(
@@ -58,14 +59,33 @@ class _ReminderState extends State<Reminder> {
                   builder: (BuildContext context,
                       AsyncSnapshot<List<AlarmClass>> snapshot) {
                     if (snapshot.hasData) {
-                      final l1 = snapshot.data;
-
-                      return ListView.builder(
-                          padding: EdgeInsets.all(10),
-                          itemCount: l1.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return AlarmTile(l1[index]);
-                          });
+                      l1 = snapshot.data;
+                      if (l1.isEmpty) {
+                        return Center(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 115),
+                            width: double.maxFinite,
+                            height: 100,
+                            child: Text(
+                              'No Alarms added',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'SanFrancisco',
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 0.25,
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        return ListView.builder(
+                            padding: EdgeInsets.all(10),
+                            itemCount: l1.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return AlarmTile(l1[index], updatePage, index);
+                            });
+                      }
                     } else {
                       return Center(
                           child: CircularProgressIndicator(
@@ -76,7 +96,7 @@ class _ReminderState extends State<Reminder> {
                 ),
               ),
               SizedBox(
-                height: 4,
+                height: 10,
               ),
               Button(
                   h: 30,
@@ -92,10 +112,20 @@ class _ReminderState extends State<Reminder> {
                       setState(() {});
                     }
                   }),
+              SizedBox(
+                height: 4,
+              ),
             ],
           ),
         ),
       ),
     ));
+  }
+
+  void updatePage(int p1) {
+    setState(() {
+      l1.removeAt(p1);
+      print(l1);
+    });
   }
 }

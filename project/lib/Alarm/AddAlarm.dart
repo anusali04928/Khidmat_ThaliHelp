@@ -107,75 +107,195 @@ class _AddAlarmState extends State<AddAlarm> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             InkWell(
-                              child: Row(
+                              child: Column(
                                 children: [
-                                  Container(
-                                    child: Center(
-                                      child: Text(
-                                        _time.hour > 12
-                                            ? (_time.hour - 12).toString()
-                                            : _time.hour.toString(),
-                                        style: TextStyle(
-                                            fontSize: 40,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                    //  color: Color(0xffba2529),
-                                    height: 60,
-                                    width: 100,
+                                  Row(
+                                    children: [
+                                      Container(
+                                        child: Center(
+                                          child: Text(
+                                            _time.hour > 12
+                                                ? (_time.hour - 12).toString()
+                                                : _time.hour.toString(),
+                                            style: TextStyle(
+                                                fontSize: 40,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        //  color: Color(0xffba2529),
+                                        height: 60,
+                                        width: 100,
 
-                                    //  padding: EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey,
-                                            blurRadius: 6,
-                                            offset: Offset(0, 3))
-                                      ],
-                                      border: Border.all(
-                                        color: Color(0xffba2529),
-                                        style: BorderStyle.solid,
-                                        width: 1.0,
+                                        //  padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            //background color of box
+                                            BoxShadow(
+                                              color: Colors.black38,
+                                              blurRadius:
+                                                  1.0, // soften the shadow
+                                              spreadRadius:
+                                                  1.0, //extend the shadow
+                                              offset: Offset(
+                                                0.0, // Move to right 10  horizontally
+                                                2.0, // Move to bottom 10 Vertically
+                                              ),
+                                            )
+                                          ],
+                                          border: Border.all(
+                                            color: Color(0xffba2529),
+                                            style: BorderStyle.solid,
+                                            width: 1.0,
+                                          ),
+                                          color: Color(0xffba2529),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
                                       ),
-                                      color: Color(0xffba2529),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Container(
+                                        child: Center(
+                                          child: Text(
+                                            _time.minute.toString(),
+                                            style: TextStyle(
+                                                fontSize: 40,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        //  color: Color(0xffba2529),
+                                        height: 60,
+                                        width: 100,
+
+                                        //  padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            //background color of box
+                                            BoxShadow(
+                                              color: Colors.black38,
+                                              blurRadius:
+                                                  1.0, // soften the shadow
+                                              spreadRadius:
+                                                  1.0, //extend the shadow
+                                              offset: Offset(
+                                                0.0, // Move to right 10  horizontally
+                                                2.0, // Move to bottom 10 Vertically
+                                              ),
+                                            )
+                                          ],
+                                          border: Border.all(
+                                            color: Color(0xffba2529),
+                                            style: BorderStyle.solid,
+                                            width: 1.0,
+                                          ),
+                                          color: Color(0xffba2529),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                   SizedBox(
-                                    width: 5,
+                                    height: 5,
                                   ),
-                                  Container(
-                                    child: Center(
-                                      child: Text(
-                                        _time.minute.toString(),
-                                        style: TextStyle(
-                                            fontSize: 40,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                    //  color: Color(0xffba2529),
-                                    height: 60,
-                                    width: 100,
+                                  Row(
+                                    children: [
+                                      Container(
+                                        child: Center(
+                                          child: Text(
+                                            'am',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: (_time.hour < 12)
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        //  color: Color(0xffba2529),
+                                        height: 60 / 2,
+                                        width: 100 / 2,
 
-                                    //  padding: EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey,
-                                            blurRadius: 6,
-                                            offset: Offset(0, 3))
-                                      ],
-                                      border: Border.all(
-                                        color: Color(0xffba2529),
-                                        style: BorderStyle.solid,
-                                        width: 1.0,
+                                        //  padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            //background color of box
+                                            BoxShadow(
+                                              color: Colors.black38,
+                                              blurRadius:
+                                                  1.0, // soften the shadow
+                                              spreadRadius:
+                                                  1.0, //extend the shadow
+                                              offset: Offset(
+                                                0.0, // Move to right 10  horizontally
+                                                2.0, // Move to bottom 10 Vertically
+                                              ),
+                                            )
+                                          ],
+                                          border: Border.all(
+                                            color: Color(0xffba2529),
+                                            style: BorderStyle.solid,
+                                            width: 1.0,
+                                          ),
+                                          color: (_time.hour < 12)
+                                              ? Color(0xffba2529)
+                                              : Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
                                       ),
-                                      color: Color(0xffba2529),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                  ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Container(
+                                        child: Center(
+                                          child: Text(
+                                            'pm',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: (_time.hour >= 12)
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                        //  color: Color(0xffba2529),
+                                        height: 60 / 2,
+                                        width: 100 / 2,
+
+                                        //  padding: EdgeInsets.all(10),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            //background color of box
+                                            BoxShadow(
+                                              color: Colors.black38,
+                                              blurRadius:
+                                                  1.0, // soften the shadow
+                                              spreadRadius:
+                                                  1.0, //extend the shadow
+                                              offset: Offset(
+                                                0.0, // Move to right 10  horizontally
+                                                2.0, // Move to bottom 10 Vertically
+                                              ),
+                                            )
+                                          ],
+                                          border: Border.all(
+                                            color: Color(0xffba2529),
+                                            style: BorderStyle.solid,
+                                            width: 1.0,
+                                          ),
+                                          color: (_time.hour >= 12)
+                                              ? Color(0xffba2529)
+                                              : Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
+                                      ),
+                                    ],
+                                  )
                                 ],
                               ),
                               onTap: () {
